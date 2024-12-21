@@ -7,7 +7,32 @@ int main(){
     cout << "* Bem-vindos ao jogo da adivinhacao! *" << endl;
     cout << "**************************************" << endl;
 
-    int nSecreto = 85;
+    const int NSECRETO = 85;
 
-    cout << "O numero secreto e " << nSecreto << ". Nao conte para ninguem!" << endl;
+    bool NAcertou = true;
+    int tentativas = 0;
+   
+    while (NAcertou){
+        tentativas++;
+        int chute;
+    
+        cout << "Tentativa " << tentativas << endl;
+        cout << "Qual e o seu chute?";
+        cin >> chute;
+        
+        cout << "Seu chute e " << chute << endl;
+
+        bool acertou = chute == NSECRETO;
+        bool maior = chute > NSECRETO;
+
+        if(acertou){
+            cout << "Parabens! voce acertou o numero secreto" << endl;
+            NAcertou = false;
+        } else if (maior){
+            cout << "Seu chute foi maior que o numero secreto" << endl;
+        } else{
+            cout << "Seu chute foi menor que o numero secreto" << endl;
+        }
+    }
+
 }
